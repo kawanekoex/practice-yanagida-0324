@@ -58,7 +58,7 @@ void APlayer_CPP::Move() {
 	if (speed < 100.f) {
 		speed += 50.f * d_time;
 	}
-	
+	pos.X += speed * d_time;
 	if (speed)
 
 	SetActorLocation(pos);
