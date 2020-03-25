@@ -8,113 +8,176 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FVector;
 #ifdef PARK_Player_CPP_generated_h
 #error "Player_CPP.generated.h already included, missing '#pragma once' in Player_CPP.h"
 #endif
 #define PARK_Player_CPP_generated_h
 
-#define park_Source_park_Player_CPP_h_37_SPARSE_DATA
-#define park_Source_park_Player_CPP_h_37_RPC_WRAPPERS \
+#define park_Source_park_Player_CPP_h_40_SPARSE_DATA
+#define park_Source_park_Player_CPP_h_40_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execSetplay_anim) \
+	DECLARE_FUNCTION(execSetMotionControllerPos) \
+	{ \
+		P_GET_STRUCT(FVector,Z_Param_right); \
+		P_GET_STRUCT(FVector,Z_Param_lest); \
+		P_GET_STRUCT(FVector,Z_Param_head); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->SetMotionControllerPos(Z_Param_right,Z_Param_lest,Z_Param_head); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSetStandby_anim) \
 	{ \
 		P_GET_PROPERTY(UByteProperty,Z_Param_in); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		P_THIS->Setplay_anim(AnimType(Z_Param_in)); \
+		P_THIS->SetStandby_anim(AnimType(Z_Param_in)); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execSetgame_over_frag) \
+	DECLARE_FUNCTION(execSetPlay_anim) \
+	{ \
+		P_GET_PROPERTY(UByteProperty,Z_Param_in); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->SetPlay_anim(AnimType(Z_Param_in)); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSetInvisible_frag) \
 	{ \
 		P_GET_UBOOL(Z_Param_in); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		P_THIS->Setgame_over_frag(Z_Param_in); \
+		P_THIS->SetInvisible_frag(Z_Param_in); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execSetact_frag) \
+	DECLARE_FUNCTION(execSetGame_over_frag) \
 	{ \
 		P_GET_UBOOL(Z_Param_in); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		P_THIS->Setact_frag(Z_Param_in); \
+		P_THIS->SetGame_over_frag(Z_Param_in); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execSetd_time) \
+	DECLARE_FUNCTION(execSetAct_frag) \
+	{ \
+		P_GET_UBOOL(Z_Param_in); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->SetAct_frag(Z_Param_in); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSetWait_time) \
 	{ \
 		P_GET_PROPERTY(UFloatProperty,Z_Param_in); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		P_THIS->Setd_time(Z_Param_in); \
+		P_THIS->SetWait_time(Z_Param_in); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execSetboost) \
+	DECLARE_FUNCTION(execSetD_time) \
 	{ \
 		P_GET_PROPERTY(UFloatProperty,Z_Param_in); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		P_THIS->Setboost(Z_Param_in); \
+		P_THIS->SetD_time(Z_Param_in); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execSetspeed) \
+	DECLARE_FUNCTION(execSetBoost) \
 	{ \
 		P_GET_PROPERTY(UFloatProperty,Z_Param_in); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		P_THIS->Setspeed(Z_Param_in); \
+		P_THIS->SetBoost(Z_Param_in); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execGetplay_anim) \
+	DECLARE_FUNCTION(execSetSpeed) \
 	{ \
+		P_GET_PROPERTY(UFloatProperty,Z_Param_in); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(TEnumAsByte<AnimType>*)Z_Param__Result=P_THIS->Getplay_anim(); \
+		P_THIS->SetSpeed(Z_Param_in); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execGetgame_over_frag) \
+	DECLARE_FUNCTION(execGetStandby_anim) \
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=P_THIS->Getgame_over_frag(); \
+		*(TEnumAsByte<AnimType>*)Z_Param__Result=P_THIS->GetStandby_anim(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execGetact_frag) \
+	DECLARE_FUNCTION(execGetPlay_anim) \
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=P_THIS->Getact_frag(); \
+		*(TEnumAsByte<AnimType>*)Z_Param__Result=P_THIS->GetPlay_anim(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execGetd_time) \
+	DECLARE_FUNCTION(execGetInvisible_frag) \
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(float*)Z_Param__Result=P_THIS->Getd_time(); \
+		*(bool*)Z_Param__Result=P_THIS->GetInvisible_frag(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execGetboost) \
+	DECLARE_FUNCTION(execGetGame_over_frag) \
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(float*)Z_Param__Result=P_THIS->Getboost(); \
+		*(bool*)Z_Param__Result=P_THIS->GetGame_over_frag(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execGetspeed) \
+	DECLARE_FUNCTION(execGetAct_frag) \
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(float*)Z_Param__Result=P_THIS->Getspeed(); \
+		*(bool*)Z_Param__Result=P_THIS->GetAct_frag(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execGetWait_time) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(float*)Z_Param__Result=P_THIS->GetWait_time(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execGetD_time) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(float*)Z_Param__Result=P_THIS->GetD_time(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execGetBoost) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(float*)Z_Param__Result=P_THIS->GetBoost(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execGetSpeed) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(float*)Z_Param__Result=P_THIS->GetSpeed(); \
 		P_NATIVE_END; \
 	} \
  \
@@ -127,107 +190,169 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	}
 
 
-#define park_Source_park_Player_CPP_h_37_RPC_WRAPPERS_NO_PURE_DECLS \
+#define park_Source_park_Player_CPP_h_40_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execSetplay_anim) \
+	DECLARE_FUNCTION(execSetMotionControllerPos) \
+	{ \
+		P_GET_STRUCT(FVector,Z_Param_right); \
+		P_GET_STRUCT(FVector,Z_Param_lest); \
+		P_GET_STRUCT(FVector,Z_Param_head); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->SetMotionControllerPos(Z_Param_right,Z_Param_lest,Z_Param_head); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSetStandby_anim) \
 	{ \
 		P_GET_PROPERTY(UByteProperty,Z_Param_in); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		P_THIS->Setplay_anim(AnimType(Z_Param_in)); \
+		P_THIS->SetStandby_anim(AnimType(Z_Param_in)); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execSetgame_over_frag) \
+	DECLARE_FUNCTION(execSetPlay_anim) \
+	{ \
+		P_GET_PROPERTY(UByteProperty,Z_Param_in); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->SetPlay_anim(AnimType(Z_Param_in)); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSetInvisible_frag) \
 	{ \
 		P_GET_UBOOL(Z_Param_in); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		P_THIS->Setgame_over_frag(Z_Param_in); \
+		P_THIS->SetInvisible_frag(Z_Param_in); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execSetact_frag) \
+	DECLARE_FUNCTION(execSetGame_over_frag) \
 	{ \
 		P_GET_UBOOL(Z_Param_in); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		P_THIS->Setact_frag(Z_Param_in); \
+		P_THIS->SetGame_over_frag(Z_Param_in); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execSetd_time) \
+	DECLARE_FUNCTION(execSetAct_frag) \
+	{ \
+		P_GET_UBOOL(Z_Param_in); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->SetAct_frag(Z_Param_in); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSetWait_time) \
 	{ \
 		P_GET_PROPERTY(UFloatProperty,Z_Param_in); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		P_THIS->Setd_time(Z_Param_in); \
+		P_THIS->SetWait_time(Z_Param_in); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execSetboost) \
+	DECLARE_FUNCTION(execSetD_time) \
 	{ \
 		P_GET_PROPERTY(UFloatProperty,Z_Param_in); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		P_THIS->Setboost(Z_Param_in); \
+		P_THIS->SetD_time(Z_Param_in); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execSetspeed) \
+	DECLARE_FUNCTION(execSetBoost) \
 	{ \
 		P_GET_PROPERTY(UFloatProperty,Z_Param_in); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		P_THIS->Setspeed(Z_Param_in); \
+		P_THIS->SetBoost(Z_Param_in); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execGetplay_anim) \
+	DECLARE_FUNCTION(execSetSpeed) \
 	{ \
+		P_GET_PROPERTY(UFloatProperty,Z_Param_in); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(TEnumAsByte<AnimType>*)Z_Param__Result=P_THIS->Getplay_anim(); \
+		P_THIS->SetSpeed(Z_Param_in); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execGetgame_over_frag) \
+	DECLARE_FUNCTION(execGetStandby_anim) \
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=P_THIS->Getgame_over_frag(); \
+		*(TEnumAsByte<AnimType>*)Z_Param__Result=P_THIS->GetStandby_anim(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execGetact_frag) \
+	DECLARE_FUNCTION(execGetPlay_anim) \
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=P_THIS->Getact_frag(); \
+		*(TEnumAsByte<AnimType>*)Z_Param__Result=P_THIS->GetPlay_anim(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execGetd_time) \
+	DECLARE_FUNCTION(execGetInvisible_frag) \
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(float*)Z_Param__Result=P_THIS->Getd_time(); \
+		*(bool*)Z_Param__Result=P_THIS->GetInvisible_frag(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execGetboost) \
+	DECLARE_FUNCTION(execGetGame_over_frag) \
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(float*)Z_Param__Result=P_THIS->Getboost(); \
+		*(bool*)Z_Param__Result=P_THIS->GetGame_over_frag(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execGetspeed) \
+	DECLARE_FUNCTION(execGetAct_frag) \
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(float*)Z_Param__Result=P_THIS->Getspeed(); \
+		*(bool*)Z_Param__Result=P_THIS->GetAct_frag(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execGetWait_time) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(float*)Z_Param__Result=P_THIS->GetWait_time(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execGetD_time) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(float*)Z_Param__Result=P_THIS->GetD_time(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execGetBoost) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(float*)Z_Param__Result=P_THIS->GetBoost(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execGetSpeed) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(float*)Z_Param__Result=P_THIS->GetSpeed(); \
 		P_NATIVE_END; \
 	} \
  \
@@ -240,7 +365,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	}
 
 
-#define park_Source_park_Player_CPP_h_37_INCLASS_NO_PURE_DECLS \
+#define park_Source_park_Player_CPP_h_40_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPlayer_CPP(); \
 	friend struct Z_Construct_UClass_APlayer_CPP_Statics; \
@@ -249,7 +374,7 @@ public: \
 	DECLARE_SERIALIZER(APlayer_CPP)
 
 
-#define park_Source_park_Player_CPP_h_37_INCLASS \
+#define park_Source_park_Player_CPP_h_40_INCLASS \
 private: \
 	static void StaticRegisterNativesAPlayer_CPP(); \
 	friend struct Z_Construct_UClass_APlayer_CPP_Statics; \
@@ -258,7 +383,7 @@ public: \
 	DECLARE_SERIALIZER(APlayer_CPP)
 
 
-#define park_Source_park_Player_CPP_h_37_STANDARD_CONSTRUCTORS \
+#define park_Source_park_Player_CPP_h_40_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API APlayer_CPP(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(APlayer_CPP) \
@@ -271,7 +396,7 @@ private: \
 public:
 
 
-#define park_Source_park_Player_CPP_h_37_ENHANCED_CONSTRUCTORS \
+#define park_Source_park_Player_CPP_h_40_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API APlayer_CPP(APlayer_CPP&&); \
@@ -282,28 +407,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayer_CPP); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(APlayer_CPP)
 
 
-#define park_Source_park_Player_CPP_h_37_PRIVATE_PROPERTY_OFFSET
-#define park_Source_park_Player_CPP_h_34_PROLOG
-#define park_Source_park_Player_CPP_h_37_GENERATED_BODY_LEGACY \
+#define park_Source_park_Player_CPP_h_40_PRIVATE_PROPERTY_OFFSET
+#define park_Source_park_Player_CPP_h_37_PROLOG
+#define park_Source_park_Player_CPP_h_40_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	park_Source_park_Player_CPP_h_37_PRIVATE_PROPERTY_OFFSET \
-	park_Source_park_Player_CPP_h_37_SPARSE_DATA \
-	park_Source_park_Player_CPP_h_37_RPC_WRAPPERS \
-	park_Source_park_Player_CPP_h_37_INCLASS \
-	park_Source_park_Player_CPP_h_37_STANDARD_CONSTRUCTORS \
+	park_Source_park_Player_CPP_h_40_PRIVATE_PROPERTY_OFFSET \
+	park_Source_park_Player_CPP_h_40_SPARSE_DATA \
+	park_Source_park_Player_CPP_h_40_RPC_WRAPPERS \
+	park_Source_park_Player_CPP_h_40_INCLASS \
+	park_Source_park_Player_CPP_h_40_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define park_Source_park_Player_CPP_h_37_GENERATED_BODY \
+#define park_Source_park_Player_CPP_h_40_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	park_Source_park_Player_CPP_h_37_PRIVATE_PROPERTY_OFFSET \
-	park_Source_park_Player_CPP_h_37_SPARSE_DATA \
-	park_Source_park_Player_CPP_h_37_RPC_WRAPPERS_NO_PURE_DECLS \
-	park_Source_park_Player_CPP_h_37_INCLASS_NO_PURE_DECLS \
-	park_Source_park_Player_CPP_h_37_ENHANCED_CONSTRUCTORS \
+	park_Source_park_Player_CPP_h_40_PRIVATE_PROPERTY_OFFSET \
+	park_Source_park_Player_CPP_h_40_SPARSE_DATA \
+	park_Source_park_Player_CPP_h_40_RPC_WRAPPERS_NO_PURE_DECLS \
+	park_Source_park_Player_CPP_h_40_INCLASS_NO_PURE_DECLS \
+	park_Source_park_Player_CPP_h_40_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -316,9 +441,12 @@ template<> PARK_API UClass* StaticClass<class APlayer_CPP>();
 
 #define FOREACH_ENUM_ANIMTYPE(op) \
 	op(None) \
+	op(Spawn) \
 	op(JumpNormal) \
 	op(JumpSpin) \
 	op(WallDashR) \
 	op(WallDashL) \
+	op(RollR) \
+	op(RollL) \
 	op(Sliding) 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

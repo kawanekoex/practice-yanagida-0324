@@ -6,7 +6,7 @@
 #include "GameFramework/Character.h"
 #include "Player_CPP.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum AnimType {
 	None,
 	Spawn,
@@ -14,6 +14,8 @@ enum AnimType {
 	JumpSpin,
 	WallDashR,
 	WallDashL,
+	RollR,
+	RollL,
 	Sliding
 };
 
@@ -71,9 +73,13 @@ public:
 	bool GetAct_frag() { return act_frag; }
 	UFUNCTION(BlueprintPure, Category = "Player")
 	bool GetGame_over_frag() { return game_over_frag; }
+	UFUNCTION(BlueprintPure, Category = "Player")
+	bool GetInvisible_frag() { return invisible_frag; }
 
 	UFUNCTION(BlueprintPure, Category = "Player")
 	AnimType GetPlay_anim() { return play_anim; }
+	UFUNCTION(BlueprintPure, Category = "Player")
+	AnimType GetStandby_anim() { return standby_anim; }
 
 	//セッター
 	UFUNCTION(BlueprintCallable, Category = "Player")
@@ -89,9 +95,13 @@ public:
 	void SetAct_frag(bool in) {  act_frag = in; }
 	UFUNCTION(BlueprintCallable, Category = "Player")
 	void SetGame_over_frag(bool in) { game_over_frag = in; }
+	UFUNCTION(BlueprintCallable, Category = "Player")
+	void SetInvisible_frag(bool in) { invisible_frag = in; }
 
 	UFUNCTION(BlueprintCallable, Category = "Player")
 	void SetPlay_anim(AnimType in) { play_anim = in; }
+	UFUNCTION(BlueprintCallable, Category = "Player")
+	void SetStandby_anim(AnimType in) { standby_anim = in; }
 
 	UFUNCTION(BlueprintCallable, Category = "Player")
 	void SetMotionControllerPos(FVector right, FVector lest, FVector head) { 
@@ -113,28 +123,36 @@ private:
 	void BoostOn();
 	void BoostOff();
 
+	void JumpMotionCheck();
+	void SlidingMotionCheck();
+	void RollingMotionCheck();
+	void BoostMotionCheck();
+
+	AnimType standby_anim;
 	AnimType play_anim;
 
 	bool act_frag;
 	bool boost_frag;
 	bool game_over_frag;
-
+	bool invisible_frag;
 
 	float speed;
 	float boost;
 	float time;
 	float press_twice_right_button;
 	float press_twice_left_button;
+	float Rolling_Wait_time;
 	float d_time;
 	float wait_time;
 
 	int64 score;
 
-	FIntVector lane_pos;
+	int32 lane_pos;
 
 	MotionControllerMgr M_Con_R;
 	MotionControllerMgr M_Con_L;
 	VRHeadGearMgr Head;
+
 
 
 };

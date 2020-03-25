@@ -25,6 +25,8 @@ void APlayer_CPP::Tick(float DeltaTime)
 	d_time = DeltaTime;
 
 	if (!game_over_frag) {
+		JumpMotionCheck();
+		SlidingMotionCheck();
 		Boost();
 		Move();
 
@@ -55,21 +57,51 @@ void APlayer_CPP::Reset() {
 
 void APlayer_CPP::Move() {
 	FVector pos = GetActorLocation();
-	if (speed < 100.f) {
-		speed += 50.f * d_time;
-	}
-	pos.X += speed * d_time;
-	if (speed)
+	if (play_anim != AnimType::RollR && play_anim != AnimType::RollL) {
+		if (speed < 100.f) {
+			speed += 50.f * d_time;
+		}
+		pos.X += speed * d_time * 10.f;
+		if (speed)
 
-	SetActorLocation(pos);
+			SetActorLocation(pos);
+	}
+	else {
+		if (play_anim == AnimType::RollR) {
+
+		}
+		else if (play_anim == AnimType::RollL) {
+
+		}
+	}
 }
 
 void APlayer_CPP::Jump() {
+	if (!act_frag) {
+		act_frag = true;
+		if (standby_anim == AnimType::JumpSpin) {
+			play_anim = AnimType::JumpSpin;
+			invisible_frag = true;
 
+			boost += 30.f;
+		}
+		else {
+			play_anim = AnimType::JumpNormal;
+		}
+	}
 }
 
 void APlayer_CPP::Sliding() {
+	if (!act_frag) {
+		if (standby_anim == AnimType::Sliding) {
+			act_frag = true;
+			play_anim = AnimType::Sliding;
+			invisible_frag = true;
 
+			boost += 30.f;
+			speed = 150.f;
+		}
+	}
 }
 
 void APlayer_CPP::WallDashRight() {
@@ -81,11 +113,17 @@ void APlayer_CPP::WallDashLeft() {
 }
 
 void APlayer_CPP::RollingRight() {
-
+	if (lane_pos + 1 <= 3) {
+		lane_pos++;
+		play_anim = AnimType::RollR;
+	}
 }
 
 void APlayer_CPP::RollingLeft() {
-
+	if (lane_pos - 1 >= -3) {
+		lane_pos--;
+		play_anim = AnimType::RollL;
+	}
 }
 
 void APlayer_CPP::Boost() {
@@ -107,4 +145,80 @@ void APlayer_CPP::BoostOn() {
 
 void APlayer_CPP::BoostOff() {
 	boost_frag = false;
+}
+
+void APlayer_CPP::JumpMotionCheck() {
+	if (M_Con_R.pos.Z < 0.f) {
+		M_Con_R.jump_point = 1;
+	}
+	else if (M_Con_R.pos.Z >= 0.f && M_Con_R.jump_point == 1) {
+		M_Con_R.jump_point = 2;
+		M_Con_R.jump_wai_time = 0.3f;
+	}
+	else if (M_Con_R.pos.Z >= 10.f && M_Con_R.jump_point == 2 && M_Con_R.jump_wai_time > 0.f) {
+		M_Con_R.jump_point = 3;
+		Jump();
+	}
+
+	if (M_Con_L.pos.Z < 0.f) {
+		M_Con_L.jump_point = 1;
+	}
+	else if (M_Con_L.pos.Z >= 0.f && M_Con_L.jump_point == 1) {
+		M_Con_L.jump_point = 2;
+		M_Con_L.jump_wai_time = 0.3f;
+	}
+	else if (M_Con_L.pos.Z >= 10.f && M_Con_L.jump_point == 2) {
+		M_Con_L.jump_point = 3;
+		Jump();
+	}
+
+
+	if (M_Con_R.jump_wai_time > 0.f) {
+		M_Con_R.jump_wai_time -= d_time;
+	}
+	if (M_Con_L.jump_wai_time > 0.f) {
+		M_Con_L.jump_wai_time -= d_time;
+	}
+}
+
+void APlayer_CPP::SlidingMotionCheck() {
+	if (M_Con_R.pos.Z > -5.f) {
+		M_Con_R.sliding_point = 1;
+	}
+	else if (M_Con_R.pos.Z <= -5.f && M_Con_R.sliding_point == 1) {
+		M_Con_R.sliding_point = 2;
+		M_Con_R.sliding_wai_time = 0.3f;
+	}
+	else if (M_Con_R.pos.Z <= -10.f && M_Con_R.sliding_point == 2 && M_Con_R.sliding_wai_time > 0.f) {
+		M_Con_R.sliding_point = 3;
+		Sliding();
+	}
+
+	if (M_Con_L.pos.Z > -5.f) {
+		M_Con_L.sliding_point = 1;
+	}
+	else if (M_Con_L.pos.Z <= -5.f && M_Con_L.sliding_point == 1) {
+		M_Con_L.sliding_point = 2;
+		M_Con_L.sliding_wai_time = 0.3f;
+	}
+	else if (M_Con_L.pos.Z <= 5.f && M_Con_L.sliding_point == 2) {
+		M_Con_L.sliding_point = 3;
+		Sliding();
+	}
+
+
+	if (M_Con_R.sliding_wai_time > 0.f) {
+		M_Con_R.sliding_wai_time -= d_time;
+	}
+	if (M_Con_L.sliding_wai_time > 0.f) {
+		M_Con_L.sliding_wai_time -= d_time;
+	}
+}
+
+void APlayer_CPP::RollingMotionCheck() {
+
+}
+
+void APlayer_CPP::BoostMotionCheck() {
+
 }

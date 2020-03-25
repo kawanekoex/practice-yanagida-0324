@@ -1,3 +1,12 @@
-﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\workspeces\source\git_park).
-  Target is up to date
-  Total execution time: 0.60 seconds
+﻿  Building parkEditor...
+  Using Visual Studio 2017 14.16.27035 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  [1/4] Compile Player_CPP.cpp
+  Player_CPP.cpp
+  [2/4] Link UE4Editor-park.dll
+  [3/4] Link UE4Editor-park.lib
+     ライブラリ C:\Users\VRroom_02\Desktop\park\Intermediate\Build\Win64\UE4Editor\Development\park\UE4Editor-park.lib とオブジェクト C:\Users\VRroom_02\Desktop\park\Intermediate\Build\Win64\UE4Editor\Development\park\UE4Editor-park.exp を作成中
+     ライブラリ C:\Users\VRroom_02\Desktop\park\Intermediate\Build\Win64\UE4Editor\Development\park\UE4Editor-park.suppressed.lib とオブジェクト C:\Users\VRroom_02\Desktop\park\Intermediate\Build\Win64\UE4Editor\Development\park\UE4Editor-park.suppressed.exp を作成中
+  [4/4] UnrealBuildTool.exe parkEditor.target
+  -------- End Detailed Actions Stats -----------------------------------------------------------
+  Total time in SNDBS executor: 6.71 seconds
+  Total execution time: 7.38 seconds
