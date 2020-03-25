@@ -9,6 +9,7 @@
 UENUM()
 enum AnimType {
 	None,
+	Spawn,
 	JumpNormal,
 	JumpSpin,
 	WallDashR,
@@ -56,35 +57,48 @@ public:
 
 	//ゲッター
 	UFUNCTION(BlueprintPure, Category = "Player")
-	float Getspeed() { return speed; }
+	float GetSpeed() { return speed; }
 	UFUNCTION(BlueprintPure, Category = "Player")
-	float Getboost() { return boost; }
+	float GetBoost() { return boost; }
 	UFUNCTION(BlueprintPure, Category = "Player")
-	float Getd_time() { return d_time; }
+	float GetD_time() { return d_time; }
 
 	UFUNCTION(BlueprintPure, Category = "Player")
-	bool Getact_frag() { return act_frag; }
-	UFUNCTION(BlueprintPure, Category = "Player")
-	bool Getgame_over_frag() { return game_over_frag; }
+	float GetWait_time() { return wait_time; }
+
 
 	UFUNCTION(BlueprintPure, Category = "Player")
-	AnimType Getplay_anim() { return play_anim; }
+	bool GetAct_frag() { return act_frag; }
+	UFUNCTION(BlueprintPure, Category = "Player")
+	bool GetGame_over_frag() { return game_over_frag; }
+
+	UFUNCTION(BlueprintPure, Category = "Player")
+	AnimType GetPlay_anim() { return play_anim; }
 
 	//セッター
 	UFUNCTION(BlueprintCallable, Category = "Player")
-	void Setspeed(float in) {  speed = in; }
+	void SetSpeed(float in) {  speed = in; }
 	UFUNCTION(BlueprintCallable, Category = "Player")
-	void Setboost(float in) {  boost = in; }
+	void SetBoost(float in) {  boost = in; }
 	UFUNCTION(BlueprintCallable, Category = "Player")
-	void Setd_time(float in) {  d_time = in; }
+	void SetD_time(float in) {  d_time = in; }
+	UFUNCTION(BlueprintCallable, Category = "Player")
+	void SetWait_time(float in) { wait_time = in; }
 
 	UFUNCTION(BlueprintCallable, Category = "Player")
-	void Setact_frag(bool in) {  act_frag = in; }
+	void SetAct_frag(bool in) {  act_frag = in; }
 	UFUNCTION(BlueprintCallable, Category = "Player")
-	void Setgame_over_frag(bool in) { game_over_frag = in; }
+	void SetGame_over_frag(bool in) { game_over_frag = in; }
 
 	UFUNCTION(BlueprintCallable, Category = "Player")
-	void Setplay_anim(AnimType in) { play_anim = in; }
+	void SetPlay_anim(AnimType in) { play_anim = in; }
+
+	UFUNCTION(BlueprintCallable, Category = "Player")
+	void SetMotionControllerPos(FVector right, FVector lest, FVector head) { 
+		M_Con_R.pos = right;
+		M_Con_L.pos = lest;
+		Head.pos = head;
+	}
 
 private:
 
@@ -112,14 +126,15 @@ private:
 	float press_twice_right_button;
 	float press_twice_left_button;
 	float d_time;
+	float wait_time;
 
 	int64 score;
 
 	FIntVector lane_pos;
 
-
-	
-	
+	MotionControllerMgr M_Con_R;
+	MotionControllerMgr M_Con_L;
+	VRHeadGearMgr Head;
 
 
 };
