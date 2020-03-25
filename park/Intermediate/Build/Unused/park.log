@@ -1,0 +1,33 @@
+﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\workspeces\source\practice-yanagida-0324).
+  Creating makefile for parkEditor (config setting changed)
+  Parsing headers for parkEditor
+    Running UnrealHeaderTool "C:\workspeces\source\practice-yanagida-0324\park\park.uproject" "C:\workspeces\source\practice-yanagida-0324\park\Intermediate\Build\Win64\parkEditor\Development\parkEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
+  Reflection code generated for parkEditor in 20.7444914 seconds
+  Building parkEditor...
+  Using Visual Studio 2017 14.16.27035 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  [1/13] Resource Default.rc2
+  SharedPCH.Engine.ShadowErrors.cpp
+  [3/13] Compile park.cpp
+  [4/13] Compile parkCharacter.cpp
+  [5/13] Compile parkGameMode.cpp
+  [6/13] Compile Player_CPP.cpp
+  [7/13] Compile park.init.gen.cpp
+  [8/13] Compile parkCharacter.gen.cpp
+  [9/13] Compile parkGameMode.gen.cpp
+  [10/13] Compile Player_CPP.gen.cpp
+  park.cpp
+  Player_CPP.cpp
+  parkGameMode.cpp
+  parkCharacter.cpp
+  park.init.gen.cpp
+  parkCharacter.gen.cpp
+  parkGameMode.gen.cpp
+  Player_CPP.gen.cpp
+  [11/13] Link UE4Editor-park.dll
+  [12/13] Link UE4Editor-park.lib
+     ライブラリ C:\workspeces\source\practice-yanagida-0324\park\Intermediate\Build\Win64\UE4Editor\Development\park\UE4Editor-park.lib とオブジェクト C:\workspeces\source\practice-yanagida-0324\park\Intermediate\Build\Win64\UE4Editor\Development\park\UE4Editor-park.exp を作成中
+     ライブラリ C:\workspeces\source\practice-yanagida-0324\park\Intermediate\Build\Win64\UE4Editor\Development\park\UE4Editor-park.suppressed.lib とオブジェクト C:\workspeces\source\practice-yanagida-0324\park\Intermediate\Build\Win64\UE4Editor\Development\park\UE4Editor-park.suppressed.exp を作成中
+  [13/13] UnrealBuildTool.exe parkEditor.target
+  -------- End Detailed Actions Stats -----------------------------------------------------------
+  Total time in SNDBS executor: 83.71 seconds
+  Total execution time: 106.92 seconds

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\park.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{EBF70240-823A-46B0-B7FD-CB529CE08CDC}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\park.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\parkEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{8DEF1E4A-8F09-4BF8-9CBA-8DD2D6E42395}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\park">
+      <UniqueIdentifier>{9A1BD642-5047-418F-9E97-98D78C5B30EB}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\park\park.Build.cs">
+      <Filter>Source\park</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\park\park.cpp">
+      <Filter>Source\park</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\park\park.h">
+      <Filter>Source\park</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\park\parkCharacter.cpp">
+      <Filter>Source\park</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\park\parkCharacter.h">
+      <Filter>Source\park</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\park\parkGameMode.cpp">
+      <Filter>Source\park</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\park\parkGameMode.h">
+      <Filter>Source\park</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\park\Player_CPP.h">
+      <Filter>Source\park</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\park\Player_CPP.cpp">
+      <Filter>Source\park</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

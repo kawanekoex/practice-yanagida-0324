@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "park",
+			"Path": "C:\\Unreal Engine\\project\\park\\Source\\park.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "parkEditor",
+			"Path": "C:\\Unreal Engine\\project\\park\\Source\\parkEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
