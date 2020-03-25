@@ -5,8 +5,7 @@ obj
 .vs
 Assembly-CSharp.csproj
 Assembly-CSharp-Editor.csproj
-tetri.sln
-XCurator.sln
+ParkOut.sln
 Temp
 
 # Visual Studio 2015 user specific files
