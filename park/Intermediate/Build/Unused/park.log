@@ -1,6 +1,3 @@
-﻿  Building parkEditor...
-  Using Visual Studio 2017 14.16.27035 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.16.27023) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  [1/1] UnrealBuildTool.exe parkEditor.target
-  -------- End Detailed Actions Stats -----------------------------------------------------------
-  Total time in SNDBS executor: 0.22 seconds
-  Total execution time: 0.98 seconds
+﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\workspeces\source\git_park).
+  Target is up to date
+  Total execution time: 0.94 seconds

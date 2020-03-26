@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"C:\\Users\\VRroom_02\\Desktop\\park\\Source\\park\\park.Build.cs",
-		"C:\\Users\\VRroom_02\\Desktop\\park\\Source\\park.Target.cs",
-		"C:\\Users\\VRroom_02\\Desktop\\park\\Source\\parkEditor.Target.cs"
+		"C:\\workspeces\\source\\git_park\\park\\Source\\park\\park.Build.cs",
+		"C:\\workspeces\\source\\git_park\\park\\Source\\park.Target.cs",
+		"C:\\workspeces\\source\\git_park\\park\\Source\\parkEditor.Target.cs"
 	],
 	"EngineVersion": "4.24.3"
 }
