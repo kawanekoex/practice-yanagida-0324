@@ -36,9 +36,11 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	PARK_API UFunction* Z_Construct_UFunction_APlayer_CPP_SetMotionControllerPos();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	PARK_API UFunction* Z_Construct_UFunction_APlayer_CPP_SetPlay_anim();
+	PARK_API UFunction* Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag();
 	PARK_API UFunction* Z_Construct_UFunction_APlayer_CPP_SetSpeed();
 	PARK_API UFunction* Z_Construct_UFunction_APlayer_CPP_SetStandby_anim();
 	PARK_API UFunction* Z_Construct_UFunction_APlayer_CPP_SetWait_time();
+	PARK_API UFunction* Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag();
 // End Cross Module References
 	static UEnum* AnimType_StaticEnum()
 	{
@@ -128,9 +130,11 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 			{ "SetInvisible_frag", &APlayer_CPP::execSetInvisible_frag },
 			{ "SetMotionControllerPos", &APlayer_CPP::execSetMotionControllerPos },
 			{ "SetPlay_anim", &APlayer_CPP::execSetPlay_anim },
+			{ "SetRoll_end_frag", &APlayer_CPP::execSetRoll_end_frag },
 			{ "SetSpeed", &APlayer_CPP::execSetSpeed },
 			{ "SetStandby_anim", &APlayer_CPP::execSetStandby_anim },
 			{ "SetWait_time", &APlayer_CPP::execSetWait_time },
+			{ "SetWall_jump_frag", &APlayer_CPP::execSetWall_jump_frag },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -725,6 +729,44 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag_Statics
+	{
+		struct Player_CPP_eventSetRoll_end_frag_Parms
+		{
+			bool in;
+		};
+		static void NewProp_in_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_in;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag_Statics::NewProp_in_SetBit(void* Obj)
+	{
+		((Player_CPP_eventSetRoll_end_frag_Parms*)Obj)->in = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag_Statics::NewProp_in = { "in", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(Player_CPP_eventSetRoll_end_frag_Parms), &Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag_Statics::NewProp_in_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag_Statics::NewProp_in,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Player" },
+		{ "ModuleRelativePath", "Player_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer_CPP, nullptr, "SetRoll_end_frag", nullptr, nullptr, sizeof(Player_CPP_eventSetRoll_end_frag_Parms), Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_APlayer_CPP_SetSpeed_Statics
 	{
 		struct Player_CPP_eventSetSpeed_Parms
@@ -826,6 +868,44 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag_Statics
+	{
+		struct Player_CPP_eventSetWall_jump_frag_Parms
+		{
+			bool in;
+		};
+		static void NewProp_in_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_in;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag_Statics::NewProp_in_SetBit(void* Obj)
+	{
+		((Player_CPP_eventSetWall_jump_frag_Parms*)Obj)->in = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag_Statics::NewProp_in = { "in", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(Player_CPP_eventSetWall_jump_frag_Parms), &Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag_Statics::NewProp_in_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag_Statics::NewProp_in,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Player" },
+		{ "ModuleRelativePath", "Player_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer_CPP, nullptr, "SetWall_jump_frag", nullptr, nullptr, sizeof(Player_CPP_eventSetWall_jump_frag_Parms), Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_APlayer_CPP_NoRegister()
 	{
 		return APlayer_CPP::StaticClass();
@@ -862,9 +942,11 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		{ &Z_Construct_UFunction_APlayer_CPP_SetInvisible_frag, "SetInvisible_frag" }, // 498222428
 		{ &Z_Construct_UFunction_APlayer_CPP_SetMotionControllerPos, "SetMotionControllerPos" }, // 3607222899
 		{ &Z_Construct_UFunction_APlayer_CPP_SetPlay_anim, "SetPlay_anim" }, // 814542213
+		{ &Z_Construct_UFunction_APlayer_CPP_SetRoll_end_frag, "SetRoll_end_frag" }, // 1119496159
 		{ &Z_Construct_UFunction_APlayer_CPP_SetSpeed, "SetSpeed" }, // 3036895543
 		{ &Z_Construct_UFunction_APlayer_CPP_SetStandby_anim, "SetStandby_anim" }, // 3241212362
 		{ &Z_Construct_UFunction_APlayer_CPP_SetWait_time, "SetWait_time" }, // 3002833802
+		{ &Z_Construct_UFunction_APlayer_CPP_SetWall_jump_frag, "SetWall_jump_frag" }, // 2642817568
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::Class_MetaDataParams[] = {
@@ -900,7 +982,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayer_CPP, 1084458352);
+	IMPLEMENT_CLASS(APlayer_CPP, 2621919875);
 	template<> PARK_API UClass* StaticClass<APlayer_CPP>()
 	{
 		return APlayer_CPP::StaticClass();

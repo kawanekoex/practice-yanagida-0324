@@ -14,8 +14,8 @@ struct FVector;
 #endif
 #define PARK_Player_CPP_generated_h
 
-#define park_Source_park_Player_CPP_h_40_SPARSE_DATA
-#define park_Source_park_Player_CPP_h_40_RPC_WRAPPERS \
+#define park_Source_park_Player_CPP_h_42_SPARSE_DATA
+#define park_Source_park_Player_CPP_h_42_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execSetMotionControllerPos) \
 	{ \
@@ -43,6 +43,24 @@ struct FVector;
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		P_THIS->SetPlay_anim(AnimType(Z_Param_in)); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSetWall_jump_frag) \
+	{ \
+		P_GET_UBOOL(Z_Param_in); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->SetWall_jump_frag(Z_Param_in); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSetRoll_end_frag) \
+	{ \
+		P_GET_UBOOL(Z_Param_in); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->SetRoll_end_frag(Z_Param_in); \
 		P_NATIVE_END; \
 	} \
  \
@@ -190,7 +208,7 @@ struct FVector;
 	}
 
 
-#define park_Source_park_Player_CPP_h_40_RPC_WRAPPERS_NO_PURE_DECLS \
+#define park_Source_park_Player_CPP_h_42_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execSetMotionControllerPos) \
 	{ \
@@ -218,6 +236,24 @@ struct FVector;
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		P_THIS->SetPlay_anim(AnimType(Z_Param_in)); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSetWall_jump_frag) \
+	{ \
+		P_GET_UBOOL(Z_Param_in); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->SetWall_jump_frag(Z_Param_in); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSetRoll_end_frag) \
+	{ \
+		P_GET_UBOOL(Z_Param_in); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->SetRoll_end_frag(Z_Param_in); \
 		P_NATIVE_END; \
 	} \
  \
@@ -365,7 +401,7 @@ struct FVector;
 	}
 
 
-#define park_Source_park_Player_CPP_h_40_INCLASS_NO_PURE_DECLS \
+#define park_Source_park_Player_CPP_h_42_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPlayer_CPP(); \
 	friend struct Z_Construct_UClass_APlayer_CPP_Statics; \
@@ -374,7 +410,7 @@ public: \
 	DECLARE_SERIALIZER(APlayer_CPP)
 
 
-#define park_Source_park_Player_CPP_h_40_INCLASS \
+#define park_Source_park_Player_CPP_h_42_INCLASS \
 private: \
 	static void StaticRegisterNativesAPlayer_CPP(); \
 	friend struct Z_Construct_UClass_APlayer_CPP_Statics; \
@@ -383,7 +419,7 @@ public: \
 	DECLARE_SERIALIZER(APlayer_CPP)
 
 
-#define park_Source_park_Player_CPP_h_40_STANDARD_CONSTRUCTORS \
+#define park_Source_park_Player_CPP_h_42_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API APlayer_CPP(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(APlayer_CPP) \
@@ -396,7 +432,7 @@ private: \
 public:
 
 
-#define park_Source_park_Player_CPP_h_40_ENHANCED_CONSTRUCTORS \
+#define park_Source_park_Player_CPP_h_42_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API APlayer_CPP(APlayer_CPP&&); \
@@ -407,28 +443,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayer_CPP); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(APlayer_CPP)
 
 
-#define park_Source_park_Player_CPP_h_40_PRIVATE_PROPERTY_OFFSET
-#define park_Source_park_Player_CPP_h_37_PROLOG
-#define park_Source_park_Player_CPP_h_40_GENERATED_BODY_LEGACY \
+#define park_Source_park_Player_CPP_h_42_PRIVATE_PROPERTY_OFFSET
+#define park_Source_park_Player_CPP_h_39_PROLOG
+#define park_Source_park_Player_CPP_h_42_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	park_Source_park_Player_CPP_h_40_PRIVATE_PROPERTY_OFFSET \
-	park_Source_park_Player_CPP_h_40_SPARSE_DATA \
-	park_Source_park_Player_CPP_h_40_RPC_WRAPPERS \
-	park_Source_park_Player_CPP_h_40_INCLASS \
-	park_Source_park_Player_CPP_h_40_STANDARD_CONSTRUCTORS \
+	park_Source_park_Player_CPP_h_42_PRIVATE_PROPERTY_OFFSET \
+	park_Source_park_Player_CPP_h_42_SPARSE_DATA \
+	park_Source_park_Player_CPP_h_42_RPC_WRAPPERS \
+	park_Source_park_Player_CPP_h_42_INCLASS \
+	park_Source_park_Player_CPP_h_42_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define park_Source_park_Player_CPP_h_40_GENERATED_BODY \
+#define park_Source_park_Player_CPP_h_42_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	park_Source_park_Player_CPP_h_40_PRIVATE_PROPERTY_OFFSET \
-	park_Source_park_Player_CPP_h_40_SPARSE_DATA \
-	park_Source_park_Player_CPP_h_40_RPC_WRAPPERS_NO_PURE_DECLS \
-	park_Source_park_Player_CPP_h_40_INCLASS_NO_PURE_DECLS \
-	park_Source_park_Player_CPP_h_40_ENHANCED_CONSTRUCTORS \
+	park_Source_park_Player_CPP_h_42_PRIVATE_PROPERTY_OFFSET \
+	park_Source_park_Player_CPP_h_42_SPARSE_DATA \
+	park_Source_park_Player_CPP_h_42_RPC_WRAPPERS_NO_PURE_DECLS \
+	park_Source_park_Player_CPP_h_42_INCLASS_NO_PURE_DECLS \
+	park_Source_park_Player_CPP_h_42_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

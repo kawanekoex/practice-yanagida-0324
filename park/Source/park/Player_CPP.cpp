@@ -23,14 +23,21 @@ void APlayer_CPP::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	d_time = DeltaTime;
-
 	if (!game_over_frag) {
+		RollingMotionCheck();
 		JumpMotionCheck();
 		SlidingMotionCheck();
 		Boost();
 		Move();
 
 
+
+		if (wall_jump_wait_time_r > 0.f) {
+			wall_jump_wait_time_r -= d_time;
+		}
+		if (wall_jump_wait_time_l > 0.f) {
+			wall_jump_wait_time_l -= d_time;
+		}
 	}
 
 
@@ -57,29 +64,59 @@ void APlayer_CPP::Reset() {
 
 void APlayer_CPP::Move() {
 	FVector pos = GetActorLocation();
+	
 	if (play_anim != AnimType::RollR && play_anim != AnimType::RollL) {
 		if (speed < 100.f) {
 			speed += 50.f * d_time;
 		}
+		else {
+			speed -= 10.f * d_time;
+		}
 		pos.X += speed * d_time * 10.f;
-		if (speed)
 
-			SetActorLocation(pos);
+		SetActorLocation(pos);
 	}
 	else {
-		if (play_anim == AnimType::RollR) {
+		speed -= 20.f * d_time;
+		if (lane_pos * 400.f > pos.Y) {
+			pos.Y += speed * d_time * 10.f;
+			if (lane_pos * 400.f < pos.Y) {
+				pos.Y = lane_pos * 400.f;
+			}
+		}
+		else if (lane_pos * 400.f < pos.Y) {
+			pos.Y -= speed * d_time * 10.f;
+			if (lane_pos * 400.f > pos.Y) {
+				pos.Y = lane_pos * 400.f;
+			}
+		}
+
+		if (roll_end_frag) {
+			if (speed < 100.f) {
+				speed += 50.f * d_time;
+			}
+			else {
+				speed -= 10.f * d_time;
+			}
+			pos.X += speed * d_time * 10.f;
 
 		}
-		else if (play_anim == AnimType::RollL) {
 
-		}
+
+		SetActorLocation(pos);
 	}
 }
 
 void APlayer_CPP::Jump() {
 	if (!act_frag) {
 		act_frag = true;
-		if (standby_anim == AnimType::JumpSpin) {
+		if (wall_jump_wait_time_r > 0.f) {
+			WallDashRight();
+		}
+		else if (wall_jump_wait_time_l > 0.f) {
+			WallDashLeft();
+		}
+		else if (standby_anim == AnimType::JumpSpin) {
 			play_anim = AnimType::JumpSpin;
 			invisible_frag = true;
 
@@ -105,25 +142,49 @@ void APlayer_CPP::Sliding() {
 }
 
 void APlayer_CPP::WallDashRight() {
-
+	play_anim = AnimType::WallDashR;
+	invisible_frag = true;
+	speed = 150.f;
+	boost += 30.f;
 }
 
 void APlayer_CPP::WallDashLeft() {
-
+	play_anim = AnimType::WallDashL;
+	invisible_frag = true;
+	speed = 150.f;
+	boost += 30.f;
 }
 
 void APlayer_CPP::RollingRight() {
-	if (lane_pos + 1 <= 3) {
-		lane_pos++;
-		play_anim = AnimType::RollR;
+	if (!act_frag) {
+		if (wall_jump_frag) {
+			wall_jump_wait_time_r = 0.3f;
+		}
+		else if (lane_pos + 1 <= 3) {
+			lane_pos++;
+			act_frag = true;
+			speed = 150.f;
+			roll_end_frag = false;
+			play_anim = AnimType::RollR;
+		}
 	}
+
 }
 
 void APlayer_CPP::RollingLeft() {
-	if (lane_pos - 1 >= -3) {
-		lane_pos--;
-		play_anim = AnimType::RollL;
+	if (!act_frag) {
+		if (wall_jump_frag) {
+			wall_jump_wait_time_l = 0.3f;
+		}
+		else if (lane_pos - 1 >= -3) {
+			lane_pos--;
+			act_frag = true;
+			speed = 150.f;
+			roll_end_frag = false;
+			play_anim = AnimType::RollL;
+		}
 	}
+
 }
 
 void APlayer_CPP::Boost() {
@@ -167,7 +228,7 @@ void APlayer_CPP::JumpMotionCheck() {
 		M_Con_L.jump_point = 2;
 		M_Con_L.jump_wai_time = 0.3f;
 	}
-	else if (M_Con_L.pos.Z >= 10.f && M_Con_L.jump_point == 2) {
+	else if (M_Con_L.pos.Z >= 10.f && M_Con_L.jump_point == 2 && M_Con_L.jump_wai_time > 0.f) {
 		M_Con_L.jump_point = 3;
 		Jump();
 	}
@@ -201,7 +262,7 @@ void APlayer_CPP::SlidingMotionCheck() {
 		M_Con_L.sliding_point = 2;
 		M_Con_L.sliding_wai_time = 0.3f;
 	}
-	else if (M_Con_L.pos.Z <= 5.f && M_Con_L.sliding_point == 2) {
+	else if (M_Con_L.pos.Z <= 5.f && M_Con_L.sliding_point == 2 && M_Con_L.sliding_wai_time > 0.f) {
 		M_Con_L.sliding_point = 3;
 		Sliding();
 	}
@@ -216,7 +277,36 @@ void APlayer_CPP::SlidingMotionCheck() {
 }
 
 void APlayer_CPP::RollingMotionCheck() {
+	if (Head.pos.Y < 2.f) {
+		Head.rolling_r_point = 1;
+	}
+	else if (Head.pos.Y >= 2.f && Head.rolling_r_point == 1) {
+		Head.rolling_r_point = 2;
+		Head.rolling_r_wai_time = 0.3f;
+	}
+	else if (Head.pos.Y >= 5.f && Head.rolling_r_point == 2 && Head.rolling_r_wai_time > 0.f) {
+		Head.rolling_r_point = 3;
+		RollingRight();
+	}
 
+	if (Head.pos.Y > -2.f) {
+		Head.rolling_l_point = -1;
+	}
+	else if (Head.pos.Y <= -2.f && Head.rolling_l_point == -1) {
+		Head.rolling_l_point = -2;
+		Head.rolling_l_wai_time = 0.3f;
+	}
+	else if (Head.pos.Y <= -5.f && Head.rolling_l_point == -2 && Head.rolling_l_wai_time > 0.f) {
+		Head.rolling_l_point = -3;
+		RollingLeft();
+	}
+
+	if (Head.rolling_r_wai_time > 0.f) {
+		Head.rolling_r_wai_time -= d_time;
+	}
+	if (Head.rolling_l_wai_time > 0.f) {
+		Head.rolling_l_wai_time -= d_time;
+	}
 }
 
 void APlayer_CPP::BoostMotionCheck() {

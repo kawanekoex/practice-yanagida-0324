@@ -30,8 +30,10 @@ struct MotionControllerMgr {
 
 struct VRHeadGearMgr {
 	FVector pos;
-	int32 jump_point;
-	float jump_wai_time;
+	int32 rolling_r_point;
+	float rolling_r_wai_time;
+	int32 rolling_l_point;
+	float rolling_l_wai_time;
 };
 
 UCLASS()
@@ -97,6 +99,11 @@ public:
 	void SetGame_over_frag(bool in) { game_over_frag = in; }
 	UFUNCTION(BlueprintCallable, Category = "Player")
 	void SetInvisible_frag(bool in) { invisible_frag = in; }
+	UFUNCTION(BlueprintCallable, Category = "Player")
+	void SetRoll_end_frag(bool in) { roll_end_frag = in; }
+	UFUNCTION(BlueprintCallable, Category = "Player")
+	void SetWall_jump_frag(bool in) { wall_jump_frag = in; }
+
 
 	UFUNCTION(BlueprintCallable, Category = "Player")
 	void SetPlay_anim(AnimType in) { play_anim = in; }
@@ -135,6 +142,8 @@ private:
 	bool boost_frag;
 	bool game_over_frag;
 	bool invisible_frag;
+	bool roll_end_frag;
+	bool wall_jump_frag;
 
 	float speed;
 	float boost;
@@ -144,6 +153,8 @@ private:
 	float Rolling_Wait_time;
 	float d_time;
 	float wait_time;
+	float wall_jump_wait_time_r;
+	float wall_jump_wait_time_l;
 
 	int64 score;
 
