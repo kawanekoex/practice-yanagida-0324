@@ -77,6 +77,8 @@ public:
 	bool GetGame_over_frag() { return game_over_frag; }
 	UFUNCTION(BlueprintPure, Category = "Player")
 	bool GetInvisible_frag() { return invisible_frag; }
+	UFUNCTION(BlueprintPure, Category = "Player")
+	bool GetReset_frag() { return reset_frag; }
 
 	UFUNCTION(BlueprintPure, Category = "Player")
 	AnimType GetPlay_anim() { return play_anim; }
@@ -92,6 +94,8 @@ public:
 	void SetD_time(float in) {  d_time = in; }
 	UFUNCTION(BlueprintCallable, Category = "Player")
 	void SetWait_time(float in) { wait_time = in; }
+	UFUNCTION(BlueprintCallable, Category = "Player")
+	void Setgame_over_wait_time(float in) { game_over_wait_time = in; }
 
 	UFUNCTION(BlueprintCallable, Category = "Player")
 	void SetAct_frag(bool in) {  act_frag = in; }
@@ -144,15 +148,15 @@ private:
 	bool invisible_frag;
 	bool roll_end_frag;
 	bool wall_jump_frag;
+	bool reset_frag;
 
 	float speed;
 	float boost;
 	float time;
-	float press_twice_right_button;
-	float press_twice_left_button;
 	float Rolling_Wait_time;
 	float d_time;
 	float wait_time;
+	float game_over_wait_time;
 	float wall_jump_wait_time_r;
 	float wall_jump_wait_time_l;
 

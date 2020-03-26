@@ -91,6 +91,15 @@ struct FVector;
 		P_NATIVE_END; \
 	} \
  \
+	DECLARE_FUNCTION(execSetgame_over_wait_time) \
+	{ \
+		P_GET_PROPERTY(UFloatProperty,Z_Param_in); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->Setgame_over_wait_time(Z_Param_in); \
+		P_NATIVE_END; \
+	} \
+ \
 	DECLARE_FUNCTION(execSetWait_time) \
 	{ \
 		P_GET_PROPERTY(UFloatProperty,Z_Param_in); \
@@ -140,6 +149,14 @@ struct FVector;
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		*(TEnumAsByte<AnimType>*)Z_Param__Result=P_THIS->GetPlay_anim(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execGetReset_frag) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(bool*)Z_Param__Result=P_THIS->GetReset_frag(); \
 		P_NATIVE_END; \
 	} \
  \
@@ -284,6 +301,15 @@ struct FVector;
 		P_NATIVE_END; \
 	} \
  \
+	DECLARE_FUNCTION(execSetgame_over_wait_time) \
+	{ \
+		P_GET_PROPERTY(UFloatProperty,Z_Param_in); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->Setgame_over_wait_time(Z_Param_in); \
+		P_NATIVE_END; \
+	} \
+ \
 	DECLARE_FUNCTION(execSetWait_time) \
 	{ \
 		P_GET_PROPERTY(UFloatProperty,Z_Param_in); \
@@ -333,6 +359,14 @@ struct FVector;
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		*(TEnumAsByte<AnimType>*)Z_Param__Result=P_THIS->GetPlay_anim(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execGetReset_frag) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(bool*)Z_Param__Result=P_THIS->GetReset_frag(); \
 		P_NATIVE_END; \
 	} \
  \
